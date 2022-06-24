@@ -1,108 +1,120 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { Avatar } from '@mui/material';
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: theme.spacing(2),
 
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '300px',
-    },
-    '& .MuiButtonBase-root': {
-      margin: theme.spacing(2),
-    },
-  },
-}));
+const theme = createTheme();
 
-const SignUp= ({ handleClose }) => {
-  const classes = useStyles();
-  // create state variables for each input
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confpassword, setConfPassword] = useState('');
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log(firstName, lastName, email, password);
-   
+export default function SignUp() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
   };
 
-  const handleReset = (e) => {
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setPassword('');
-    setConfPassword('');
-
-  }
-
   return (
-    <form className={classes.root} onSubmit={handleSubmit}>
-        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <h3>Sign Up</h3>
-      <TextField
-        label="First Name"
-        variant="outlined"
-        required
-        value={firstName}
-        onChange={e => setFirstName(e.target.value)}
-      />
-      <TextField
-        label="Last Name"
-        variant="outlined"
-        required
-        value={lastName}
-        onChange={e => setLastName(e.target.value)}
-      />
-      <TextField
-        label="Email"
-        variant="outlined"
-        type="email"
-        required
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-      />
-      <TextField
-        label="Password"
-        variant="outlined"
-        type="password"
-        required
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
-      <TextField
-        label="Confirm Password"
-        variant="outlined"
-        type="password"
-        required
-        value={confpassword}
-        onChange={e => setConfPassword(e.target.value)}
-      />
-      <div>
-        <Button variant="contained" onClick={handleReset}>
-          Cancel
-        </Button>
-        <Button type="submit" variant="contained" color="primary">
-          Signup
-        </Button>
-      </div>
-      
-    </form>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="firstName"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="First Name"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="lastName"
+                  label="Last Name"
+                  name="lastName"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  label="I want to receive inspiration, marketing promotions and updates via email."
+                />
+              </Grid>
+            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign Up
+            </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="#" variant="body2">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+       
+      </Container>
+    </ThemeProvider>
   );
-};
-
-export default SignUp;
+}

@@ -8,6 +8,7 @@ import ResponsiveAppBar from './Components/project1/Nav';
 import Pricing from './Components/project1/Pricing';
 import Products from './Components/project1/Products';
 import SignUp from './Components/project1/SignUp';
+import Login from './Components/project1/SignIn';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='Pricing' element={<Pricing/>}/>
         <Route path='Products' element={<Products/>}/>
         <Route path='SignUp' element={<SignUp/>}/>
+        <Route path='Login' element={<Login/>}/>
       </Routes>
       <Footer/>
       
