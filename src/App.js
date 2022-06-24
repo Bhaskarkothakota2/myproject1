@@ -2,6 +2,7 @@
 import { Route, Routes } from 'react-router';
 import './App.css';
 import Blog from './Components/project1/Blog';
+import Footer from './Components/project1/Footer';
 import Home from './Components/project1/Home';
 import ResponsiveAppBar from './Components/project1/Nav';
 import Pricing from './Components/project1/Pricing';
@@ -19,6 +20,7 @@ function App() {
         <Route path='Products' element={<Products/>}/>
         <Route path='SignUp' element={<SignUp/>}/>
       </Routes>
+      <Footer/>
       
     </div>
   );
