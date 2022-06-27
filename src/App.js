@@ -6,9 +6,10 @@ import Footer from './Components/project1/Footer';
 import Home from './Components/project1/Home';
 import ResponsiveAppBar from './Components/project1/Nav';
 import Pricing from './Components/project1/Pricing';
-import Products from './Components/project1/Products';
+import CheckWeather from './Components/project1/CheckWeather';
 import SignUp from './Components/project1/SignUp';
 import Login from './Components/project1/SignIn';
+
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='Blog' element={<Blog/>}/>
         <Route path='Pricing' element={<Pricing/>}/>
-        <Route path='Products' element={<Products/>}/>
+        <Route path='CheckWeather' element={<CheckWeather/>}/>
         <Route path='SignUp' element={<SignUp/>}/>
         <Route path='Login' element={<Login/>}/>
       </Routes>

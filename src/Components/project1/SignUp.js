@@ -55,7 +55,7 @@ export default function SignUp() {
                   fullWidth
                   id="firstName"
                   label="First Name"
-                  autoFocus
+                  
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -106,7 +106,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/Login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

@@ -7,16 +7,17 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
+import Avatar from '@mui/material/Avatar'; 
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+// import AdbIcon from '@mui/icons-material/Adb';
+import FestivalIcon from '@mui/icons-material/Festival';
 
 
 import {Link} from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog', 'SignUp', 'Login'];
+const pages = ['CheckWeather', 'Pricing', 'Blog', 'SignUp', 'Login'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -42,10 +43,10 @@ const ResponsiveAppBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <FestivalIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
-            noWrap
+            noWrap 
             component="a"
             href="/"
             sx={{
@@ -61,7 +62,7 @@ const ResponsiveAppBar = () => {
             LOGO
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex' , md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -93,7 +94,7 @@ const ResponsiveAppBar = () => {
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <Link to={`/${page}`}style={{textDecoration : 'none', color : 'white'}}>
+                    <Link to={`/${page}`}style={{textDecoration : 'none', color : 'black'}}>
                     {page}
                     </Link>
                   </Typography>
@@ -101,7 +102,7 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <FestivalIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
